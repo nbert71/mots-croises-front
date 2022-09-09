@@ -1,15 +1,10 @@
 <Navbar />
 
-<div class=" w-1/3 grid grid-cols-7 gap-3">
-    {#each letters as letter, i}
-        <Letter letter={letters[i]} />
-    {/each}
-</div>
+<MyLetters letters_size={letters_size}/>
 
 <script>
-    import Letter from "./components/Letter.svelte";
     import Navbar from "./components/Navbar.svelte";
+    import MyLetters from "./components/MyLetters.svelte";
 
-    let letters = "ABCDEFGHIJKLMNOPQRSTUVWXZ".split('').slice(0, 14);
-
+    let letters_size = 14;
 </script>
