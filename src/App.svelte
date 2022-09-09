@@ -5,7 +5,7 @@
         <MyLetters letters_size={letters_size}/>
     </div>  
     <div class="w-2/3 flex flex-col items-center">
-        <Grid />
+        <Grid list={list} />
     </div> 
 </div>
 
@@ -14,6 +14,20 @@
     import Navbar from "./components/Navbar.svelte";
     import MyLetters from "./components/MyLetters.svelte";
     import Grid from "./components/Grid.svelte";
+
+    let list = [
+        "--CHIC--NEZ",
+        "---O-APRE--",
+        "--CUIR--T-E",
+        "M--X-ARC--M",
+        "A-M--T-A--E",
+        "T-E--SAPHIR",
+        "IODES--I--A",
+        "N-I--U-TENU",
+        "E-AGENDA--D",
+        "E----I-L--E",
+        "SOUDE------",
+    ];
 
     let letters_size = 14;
 </script>
