@@ -16,7 +16,27 @@
     import Grid from "./components/Grid.svelte";
     import {GridJS} from "./components/GridJS.js";
 
-    let list = new GridJS(11)
+    let list = new GridJS()
+    list.add_words([
+        "CHIC",
+        "NEZ",
+        "APRE",
+        "CUIR",
+        "ARC",
+        "SAPHIR",
+        "IODES",
+        "TENU",
+        "AGENDA",
+        "SOUDE",
+        "MATINEES",
+        "MEDIA",
+        "HOUX",
+        "CARATS",
+        "UNI",
+        "CAPITAL",
+        "NET",
+        "EMERAUDE"])
+
     list.add_letters([
         "--CHIC--NEZ",
         "---O-APRE--",

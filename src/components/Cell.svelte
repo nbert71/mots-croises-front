@@ -1,10 +1,10 @@
 <div class="w-25 h-25 border border-black bg-white rounded-sm flex items-center justify-center text-3xl"
     class:revealed={isRevealed}
     class:finded={isInFindedWord && isRevealed}
-    class:blank={letter === '-'}
+    class:blank={letter.value === '-'}
 >
-    {#if letter !== '-'}
-        {letter}
+    {#if letter.value !== '-'}
+        {letter.value}
     {/if}
 </div>
 

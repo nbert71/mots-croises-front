@@ -7,7 +7,7 @@
 <div class="h-full aspect-square grid grid-cols-11 border-[10px] bg-black border-yellow-400">
     {#each Array(grid.length) as _, i}
         {#each Array(grid[0].length) as __, j}
-            <Cell letter={grid[i][j]} isRevealed={letters.list.includes(grid[i][j]) && letters.displayed[grid[i][j]]}/>
+            <Cell letter={grid[i][j]} isRevealed={letters.list.includes(grid[i][j].value) && letters.displayed[grid[i][j].value]}/>
         {/each}
     {/each}
 
@@ -19,5 +19,5 @@
 
     export let list;
     export let letters;
-    let grid = list.letters.map(row => row.split(''));
+    let grid = list.letters;
 </script>
