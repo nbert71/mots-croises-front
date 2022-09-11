@@ -14,11 +14,10 @@
 </div>
 
 <script>
-    import { listen } from "svelte/internal";
-import Cell from "./Cell.svelte";
-    let find = 2;
+    import Cell from "./Cell.svelte";
+    let find = 3;
 
     export let list;
     export let letters;
-    let grid = list.map(row => row.split(''));
+    let grid = list.letters.map(row => row.split(''));
 </script>

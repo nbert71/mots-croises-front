@@ -14,8 +14,10 @@
     import Navbar from "./components/Navbar.svelte";
     import MyLetters from "./components/MyLetters.svelte";
     import Grid from "./components/Grid.svelte";
+    import {GridJS} from "./components/GridJS.js";
 
-    let list = [
+    let list = new GridJS(11)
+    list.add_letters([
         "--CHIC--NEZ",
         "---O-APRE--",
         "--CUIR--T-E",
@@ -27,7 +29,7 @@
         "E-AGENDA--D",
         "E----I-L--E",
         "SOUDE------",
-    ];
+    ])
 
     //let letters_size = 14;
     let letters = {
