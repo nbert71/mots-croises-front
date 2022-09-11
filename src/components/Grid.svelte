@@ -7,16 +7,18 @@
 <div class="h-full aspect-square grid grid-cols-11 border-[10px] bg-black border-yellow-400">
     {#each Array(grid.length) as _, i}
         {#each Array(grid[0].length) as __, j}
-            <Cell letter={grid[i][j]} />
+            <Cell letter={grid[i][j]} isRevealed={letters.list.includes(grid[i][j]) && letters.displayed[grid[i][j]]}/>
         {/each}
     {/each}
 
 </div>
 
 <script>
-    import Cell from "./Cell.svelte";
+    import { listen } from "svelte/internal";
+import Cell from "./Cell.svelte";
     let find = 2;
 
     export let list;
+    export let letters;
     let grid = list.map(row => row.split(''));
 </script>

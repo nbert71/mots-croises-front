@@ -12,7 +12,7 @@
 
 <script>
     export let letter;
-    let isRevealed = false;
+    export let isRevealed;
     let isInFindedWord = false;
 </script>
 

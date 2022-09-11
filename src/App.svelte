@@ -2,10 +2,10 @@
 
 <div class="flex w-3/4 mt-10">
     <div class="w-1/3 flex flex-col items-center">
-        <MyLetters letters_size={letters_size}/>
+        <MyLetters bind:letters={letters}/>
     </div>  
     <div class="w-2/3 flex flex-col items-center">
-        <Grid list={list} />
+        <Grid {list} {letters}/>
     </div> 
 </div>
 
@@ -29,5 +29,25 @@
         "SOUDE------",
     ];
 
-    let letters_size = 14;
+    //let letters_size = 14;
+    let letters = {
+        list:['A','B','C','D','E','F','G','H','I','J','K','L','M','N'],
+        displayed:{
+            A:false,
+            B:false,
+            C:false,
+            D:false,
+            E:false,
+            F:false,
+            G:false,
+            H:false,
+            I:false,
+            J:false,
+            K:false,
+            L:false,
+            M:false,
+            N:false
+        }
+    }
+    $: console.log(letters)
 </script>
