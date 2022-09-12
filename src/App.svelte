@@ -2,7 +2,7 @@
 
 <div class="flex w-3/4 mt-10">
     <div class="w-1/3 flex flex-col items-center">
-        <MyLetters bind:letters={letters}/>
+        <MyLetters bind:letters={letters} bind:list={list}/>
     </div>  
     <div class="w-2/3 flex flex-col items-center">
         <Grid {list} {letters}/>
@@ -16,28 +16,7 @@
     import Grid from "./components/Grid.svelte";
     import {GridJS} from "./components/GridJS.js";
 
-    let list = new GridJS()
-    list.add_words([
-        "CHIC",
-        "NEZ",
-        "APRE",
-        "CUIR",
-        "ARC",
-        "SAPHIR",
-        "IODES",
-        "TENU",
-        "AGENDA",
-        "SOUDE",
-        "MATINEES",
-        "MEDIA",
-        "HOUX",
-        "CARATS",
-        "UNI",
-        "CAPITAL",
-        "NET",
-        "EMERAUDE"])
-
-    list.add_letters([
+    let list = new GridJS([
         "--CHIC--NEZ",
         "---O-APRE--",
         "--CUIR--T-E",
@@ -50,7 +29,8 @@
         "E----I-L--E",
         "SOUDE------",
     ])
-
+    list.find_words()
+    
     //let letters_size = 14;
     let letters = {
         list:['A','B','C','D','E','F','G','H','I','J','K','L','M','N'],
@@ -71,5 +51,4 @@
             N:false
         }
     }
-    $: console.log(letters)
 </script>

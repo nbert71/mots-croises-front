@@ -1,6 +1,6 @@
 <div class="w-25 h-25 border border-black bg-white rounded-sm flex items-center justify-center text-3xl"
     class:revealed={isRevealed}
-    class:finded={isInFindedWord && isRevealed}
+    class:finded={wordDiscovered && isRevealed}
     class:blank={letter.value === '-'}
 >
     {#if letter.value !== '-'}
@@ -14,7 +14,7 @@
 <script>
     export let letter;
     export let isRevealed;
-    let isInFindedWord = false;
+    export let wordDiscovered;
 </script>
 
 <style>

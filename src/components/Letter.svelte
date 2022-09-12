@@ -1,9 +1,12 @@
 <script>
     export let letter;
     export let displayed;
+    export let list;
 
     function reveal() {
         displayed = true;
+        list.discover_letter(letter);
+        list = list;
     }
 </script>
 
