@@ -1,9 +1,10 @@
 <div class="h-10 my-2 font-bold text-yellow-500">
     {#if list.finded_words > 1}
-        {list.finded_words} mots trouvés !
+        {list.finded_words} mots trouvés ! (Vous gagnez {gains[list.finded_words]}€ !)
     {:else if list.finded_words ===1}
         1 mot trouvé !
     {/if}
+
 </div>
 
 <div class="h-full aspect-square grid grid-cols-11 border-[10px] bg-black border-yellow-400">
@@ -25,4 +26,17 @@
     export let list;
     export let letters;
     let grid = list.letters;
+
+    let gains = {
+        0: 0,
+        1: 0,
+        2: 3,
+        3: 6,
+        4: 15,
+        5: 30,
+        6: 100,
+        7: 500,
+        8: 1000,
+        9: 40000
+    }
 </script>
