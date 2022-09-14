@@ -30,25 +30,27 @@
         "SOUDE------",
     ])
     list.find_words()
-    
+
+    let letters = list.generate_my_letters()
+
     //let letters_size = 14;
-    let letters = {
-        list:['A','B','C','D','E','F','G','H','I','J','K','L','M','N'],
-        displayed:{
-            A:false,
-            B:false,
-            C:false,
-            D:false,
-            E:false,
-            F:false,
-            G:false,
-            H:false,
-            I:false,
-            J:false,
-            K:false,
-            L:false,
-            M:false,
-            N:false
-        }
-    }
+    // let letters = {
+    //     list:['A','B','C','D','E','F','G','H','I','J','K','L','M','N'],
+    //     displayed:{
+    //         A:false,
+    //         B:false,
+    //         C:false,
+    //         D:false,
+    //         E:false,
+    //         F:false,
+    //         G:false,
+    //         H:false,
+    //         I:false,
+    //         J:false,
+    //         K:false,
+    //         L:false,
+    //         M:false,
+    //         N:false
+    //     }
+    // }
 </script>

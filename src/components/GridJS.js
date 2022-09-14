@@ -48,31 +48,46 @@ export class GridJS{
     }
 
     generate_my_letters(){
-        let my_letters = [];    // Mon jeu de 14 lettres
+        let my_letters = {
+            list: [],
+            displayed: {}
+        };    // Mon jeu de 14 lettres
 
         let letters_bag = this.get_all_letters();   // on a toutes les lettres de la grille
         
-        let vowels_bag = letters_bag.filter(char => this.isVowel(char));  // toutes les voyelels de la grille
+        let vowels_bag = letters_bag.filter(char => this.isVowel(char));  // toutes les voyellzs de la grille
         let consouns_bag = letters_bag.filter(char => !this.isVowel(char));   // idem pour les consonnes
 
         //On sélectionne max 4 voyelles random, ou moins si la grille en comporte moins
         if(vowels_bag.length < 4) {
-            vowels_bag.map(vowel => my_letters.push({value: vowel, displayed: false}))
+            vowels_bag.map(vowel => {
+                my_letters.list.push(vowel);
+                my_letters.displayed[vowel] = false
+            })
                 
         } else {
-            let shuffled_vowels = this.shuffleArray(vowels_bag) // on shuffle les voyelles
+            let shuffled_vowels = this.shuffleArray(vowels_bag); // on shuffle les voyelles
             let choosen_vowels = shuffled_vowels.slice(0, 4)    // on prend les 4 premières
-            choosen_vowels.map(vowel => my_letters.push({value: vowel, displayed: false}))
+            choosen_vowels.map(vowel => {
+                my_letters.list.push(vowel);
+                my_letters.displayed[vowel] = false
+            })
         }
 
-        let consouns_number = 14 - my_letters.length    // TODO mettre le 14 en paramètre du constructeur
+        let consouns_number = 14 - my_letters.list.length    // TODO mettre le 14 en paramètre du constructeur
         let shuffled_consouns = this.shuffleArray(consouns_bag);
+        
 
         for (let i = 0; i < consouns_number; i++) {
-            my_letters.push({value: shuffled_consouns[i], displayed: false})
+            my_letters.list.push(shuffled_consouns[i]);
+            my_letters.displayed[shuffled_consouns[i]] = false
         }
         
-        return this.shuffleArray(my_letters)
+        // on mé lange les lettres on sait jamais        
+        let shuffled_letters = this.shuffleArray(my_letters.list)
+        my_letters.list = shuffled_letters
+
+        return my_letters
     }
 
     find_words(){
