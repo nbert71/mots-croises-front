@@ -6,6 +6,10 @@
     {/each}
 </div>
 
+<div class="bg-green-600 px-6 py-2 rounded-full text-white hover:shadow-xl hover:scale-110 transition-all cursor-pointer border-2 border-white outline-green-600 outline">
+    AUTO
+</div>
+
 <script>
     import Letter from "./Letter.svelte";
 
