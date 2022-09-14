@@ -6,7 +6,7 @@
     {/each}
 </div>
 
-<div class="bg-green-600 px-6 py-2 rounded-full text-white hover:shadow-xl hover:scale-110 transition-all cursor-pointer border-2 border-white outline-green-600 outline">
+<div on:click={reveal_all} class="text-2xl bg-green-600 px-6 py-2 rounded-full text-white hover:shadow-xl hover:scale-110 transition-all cursor-pointer border-2 border-white outline-green-600 outline">
     AUTO
 </div>
 
@@ -17,5 +17,13 @@
     export let list;
 
     //let letters = "ABCDEFGHIJKLMNOPQRSTUVWXZ".split('').slice(0, letters_size);
+
+    function reveal_all() {
+        for(let letter of letters.list){
+            letters.displayed[letter]=true
+            list.discover_letter(letter)
+        }
+        list = list;
+    }
 
 </script>
