@@ -26,6 +26,47 @@ export class GridJS{
         return letters_list;
     }
 
+    get_all_letters(){
+        let letters_list = [];
+        for (let i = 0; i < this.n_x; i++) {
+            for (let j = 0; j < this.n_y; j++) {
+                if(!letters_list.includes(this.letters[i][j])){
+                    letters_list.push(this.letters[i][j])
+                }
+            }
+        }
+        return letters_list;
+    }
+
+    isVowel(char){
+        return ['a', 'e', 'i', 'o', 'u', 'y'].indexOf(char.toLowerCase()) !== -1
+    }
+
+    generate_my_letters(){
+        let my_letters = [];    // Mon jeu de 14 lettres
+
+        let letters_bag = this.get_all_letters();   // on a toutes les lettres de la grille
+        let vowels_bag = letters_bag.filter(char => this.isVowel(char.value));  // toutes les voyelels de la grille
+        let consouns_bag = letters_bag.filter(char => !this.isVowel(char.value));   // idem pour les consonnes
+
+        //On sélectionne max 4 voyelles random, ou moins si la grille en comporte moins
+        if(vowels_bag.length < 4) {
+            vowels_bag.map(vowel => my_letters.push(vowel))
+
+        } else {
+            let shuffled_vowels = vowels_bag.sort((a,b) => 0.5 - Math.random()) // on shuffle les voyelles
+            let choosen_vowels = shuffled_vowels.slice(0, 4)    // on prend les 4 premières
+            choosen_vowels.map(vowel => my_letters.push(vowel))
+        }
+
+        let consouns_number = 14 - my_letters.length    // TODO mettre le 14 en paramètre du constructeur
+
+        for (let i = 0; i < consouns_number; i++) {
+            my_letters.push(consouns_bag[i])
+        }
+        return my_letters
+    }
+
     find_words(){
         let index=0
         for(let x=0;x<this.n_x;x++){
