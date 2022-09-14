@@ -30,8 +30,9 @@ export class GridJS{
         let letters_list = [];
         for (let i = 0; i < this.n_x; i++) {
             for (let j = 0; j < this.n_y; j++) {
-                if(!letters_list.includes(this.letters[i][j])){
-                    letters_list.push(this.letters[i][j])
+                let current_letter = this.letters[i][j].value;
+                if(!letters_list.includes(current_letter) && current_letter !== "-"){
+                    letters_list.push(current_letter)
                 }
             }
         }
@@ -42,29 +43,36 @@ export class GridJS{
         return ['a', 'e', 'i', 'o', 'u', 'y'].indexOf(char.toLowerCase()) !== -1
     }
 
+    shuffleArray(arr) {
+        return arr.sort((a, b) => 0.5 - Math.random())
+    }
+
     generate_my_letters(){
         let my_letters = [];    // Mon jeu de 14 lettres
 
         let letters_bag = this.get_all_letters();   // on a toutes les lettres de la grille
-        let vowels_bag = letters_bag.filter(char => this.isVowel(char.value));  // toutes les voyelels de la grille
-        let consouns_bag = letters_bag.filter(char => !this.isVowel(char.value));   // idem pour les consonnes
+        
+        let vowels_bag = letters_bag.filter(char => this.isVowel(char));  // toutes les voyelels de la grille
+        let consouns_bag = letters_bag.filter(char => !this.isVowel(char));   // idem pour les consonnes
 
         //On sélectionne max 4 voyelles random, ou moins si la grille en comporte moins
         if(vowels_bag.length < 4) {
-            vowels_bag.map(vowel => my_letters.push(vowel))
-
+            vowels_bag.map(vowel => my_letters.push({value: vowel, displayed: false}))
+                
         } else {
-            let shuffled_vowels = vowels_bag.sort((a,b) => 0.5 - Math.random()) // on shuffle les voyelles
+            let shuffled_vowels = this.shuffleArray(vowels_bag) // on shuffle les voyelles
             let choosen_vowels = shuffled_vowels.slice(0, 4)    // on prend les 4 premières
-            choosen_vowels.map(vowel => my_letters.push(vowel))
+            choosen_vowels.map(vowel => my_letters.push({value: vowel, displayed: false}))
         }
 
         let consouns_number = 14 - my_letters.length    // TODO mettre le 14 en paramètre du constructeur
+        let shuffled_consouns = this.shuffleArray(consouns_bag);
 
         for (let i = 0; i < consouns_number; i++) {
-            my_letters.push(consouns_bag[i])
+            my_letters.push({value: shuffled_consouns[i], displayed: false})
         }
-        return my_letters
+        
+        return this.shuffleArray(my_letters)
     }
 
     find_words(){
@@ -81,7 +89,6 @@ export class GridJS{
                 }else if(current_word!==""){
                     let length=y-begin
                     if(length!==1){
-                        console.log(current_word)
                         let letters_list= this.extract_letters(current_word)
                         this.words.push({
                             mot:current_word,
@@ -115,7 +122,6 @@ export class GridJS{
                 }else if(current_word!==""){
                     let length=x-begin
                     if(length!==1){
-                        console.log(current_word)
                         let letters_list= this.extract_letters(current_word)
                         this.words.push({
                             mot:current_word,
