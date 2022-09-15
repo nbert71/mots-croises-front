@@ -104,6 +104,7 @@ export class GridJS{
                 }else if(current_word!==""){
                     let length=y-begin
                     if(length!==1){
+                        console.log(current_word)
                         let letters_list= this.extract_letters(current_word)
                         this.words.push({
                             mot:current_word,
@@ -124,6 +125,27 @@ export class GridJS{
                     current_word=""
                 }
             }
+            if(current_word!==""){
+                let length=this.n_y-begin
+                if(length!==1){
+                    let letters_list= this.extract_letters(current_word)
+                    this.words.push({
+                        mot:current_word,
+                        lettre_reste_a_trouver:letters_list,
+                        mot_valid:false,
+                        position:{
+                            debut_x:x,
+                            debut_y:begin,
+                            orientation:false,//true -> vertical & false -> horizontal
+                            number_letters:current_word.length
+                        }
+                    })
+                    for(let y_bis=begin;y_bis<this.n_y;y_bis++){
+                        this.letters[x][y_bis].mots_associes[0]=index//first value horizontal & 2nd value vertical
+                    }
+                    index+=1
+                }
+            }
         }
         for(let y=0;y<this.n_y;y++){
             let current_word="";
@@ -137,6 +159,7 @@ export class GridJS{
                 }else if(current_word!==""){
                     let length=x-begin
                     if(length!==1){
+                        console.log(current_word)
                         let letters_list= this.extract_letters(current_word)
                         this.words.push({
                             mot:current_word,
@@ -155,6 +178,27 @@ export class GridJS{
                         index+=1
                     }
                     current_word=""
+                }
+            }
+            if(current_word!==""){
+                let length=this.n_x-begin
+                if(length!==1){
+                    let letters_list= this.extract_letters(current_word)
+                    this.words.push({
+                        mot:current_word,
+                        lettre_reste_a_trouver:letters_list,
+                        mot_valid:false,
+                        position:{
+                            debut_y:y,
+                            debut_x:begin,
+                            orientation:false,//true -> vertical & false -> horizontal
+                            number_letters:current_word.length
+                        }
+                    })
+                    for(let x_bis=begin;x_bis<this.n_x;x_bis++){
+                        this.letters[x_bis][y].mots_associes[0]=index//first value horizontal & 2nd value vertical
+                    }
+                    index+=1
                 }
             }
         }
