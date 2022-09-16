@@ -196,7 +196,7 @@ export class GridJS{
                         }
                     })
                     for(let x_bis=begin;x_bis<this.n_x;x_bis++){
-                        this.letters[x_bis][y].mots_associes[0]=index//first value horizontal & 2nd value vertical
+                        this.letters[x_bis][y].mots_associes[1]=index//first value horizontal & 2nd value vertical
                     }
                     index+=1
                 }
