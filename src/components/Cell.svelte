@@ -1,4 +1,4 @@
-<div class="w-25 h-25 border border-black bg-white rounded-sm flex items-center justify-center text-3xl"
+<div class="w-full h-full border border-black bg-white rounded-sm flex items-center justify-center text-3xl"
     class:revealed={isRevealed}
     class:finded={wordDiscovered && isRevealed}
     class:blank={letter.value === '-'}

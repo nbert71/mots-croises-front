@@ -1,10 +1,10 @@
 <Navbar />
 
-<div class="flex w-3/4 mt-10">
+<div class="flex w-4/5 mt-10">
     <div class="w-1/3 flex flex-col items-center">
         <MyLetters bind:letters={letters} bind:list={list}/>
     </div>  
-    <div class="w-2/3 flex flex-col items-center">
+    <div class="w-2/3 flex flex-col items-center justify-center">
         <Grid {list} {letters}/>
     </div> 
 </div>

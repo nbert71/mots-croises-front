@@ -1,6 +1,6 @@
 <h2 class="text-green-600 font-bold text-2xl">Vos {letters.list.length} lettres</h2>
 
-<div class=" w-1/3 grid grid-cols-2 gap-3 my-4">
+<div class="w-1/4 grid grid-cols-2 gap-3 my-4">
     {#each letters.list as letter}
         <Letter {letter} bind:displayed={letters.displayed[letter]} bind:list={list}/>
     {/each}
