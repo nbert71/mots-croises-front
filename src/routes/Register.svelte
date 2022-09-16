@@ -1,4 +1,4 @@
-<div class="flex h-screen min-w-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+<div class="flex h-screen min-w-full bg-gray-100 flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <h1 class="font-bold mb-4 text-center text-xl">Mots croisés</h1>

@@ -1,13 +1,19 @@
 <nav class="w-full h-16 bg-gray-300 shadow-md flex justify-between items-center mb-4 px-8">
-    <div class="navbar-left">Jeux de mots croisés</div>
-    <div class="navbar-right">
+    <div class="flex items-center">
+        <span class="text-xl mr-16">Jeux de mots croisés</span>
+        <ul class="nav flex justify-between gap-8">
+            <a href="/"use:active={'/'}>Home</a>
+            <a href="/#/help"use:active={'/help'}>Help</a>
+
+        </ul>
+    </div>
+    <div class="">
         <span class="bg-gray-500 text-white px-3 py-2 rounded-full">
             110 €
         </span>
     </div>
 </nav>
 
-<style>
-    .navbar-left {@apply font-bold text-xl; }
-
-</style>
+<script>
+    import active from 'svelte-spa-router/active';
+</script>
