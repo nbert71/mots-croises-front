@@ -1,12 +1,12 @@
 <h2 class="text-green-600 font-bold text-2xl">Vos {letters.list.length} lettres</h2>
 
-<div class="w-1/4 grid grid-cols-2 gap-3 my-4">
+<div class="h-3/4 grid grid-cols-2 gap-3 my-4">
     {#each letters.list as letter}
         <Letter {letter} bind:displayed={letters.displayed[letter]} bind:list={list}/>
     {/each}
 </div>
 
-<div on:click={reveal_all} class="text-2xl bg-green-600 px-6 py-2 rounded-full text-white hover:shadow-xl hover:scale-110 transition-all cursor-pointer border-2 border-white outline-green-600 outline">
+<div on:click={reveal_all} class="mt-5 text-2xl bg-green-600 px-6 py-2 rounded-full text-white hover:shadow-xl hover:scale-110 transition-all cursor-pointer border-2 border-white outline-green-600 outline">
     AUTO
 </div>
 

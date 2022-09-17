@@ -1,12 +1,14 @@
 <Navbar />
 
-<div class="flex w-4/5 mt-10">
-    <div class="w-1/3 flex flex-col items-center">
+<div class="flex w-full h-full my-10">
+    <div class="w-3/12 flex flex-col items-center">
         <MyLetters bind:letters={letters} bind:list={list}/>
     </div>  
-    <div class="w-2/3 flex flex-col items-center justify-center">
+    <div class="w-5/12 flex flex-col items-center justify-center">
         <Grid {list} {letters}/>
     </div> 
+    <div class="w-1/12"></div>
+    <Gains/>
 </div>
 
 
@@ -14,6 +16,7 @@
     import Navbar from "../components/Navbar.svelte";
     import MyLetters from "../components/MyLetters.svelte";
     import Grid from "../components/Grid.svelte";
+    import Gains from "../components/Gains.svelte";
     import {GridJS} from "../components/GridJS.js";
 
     let list = new GridJS([
