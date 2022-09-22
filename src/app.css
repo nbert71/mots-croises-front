@@ -6,4 +6,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
+}
+
+ul.nav > a {
+    @apply font-light
+}
+ul.nav a.active {
+    @apply font-bold;
 }
