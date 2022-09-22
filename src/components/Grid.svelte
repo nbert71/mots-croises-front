@@ -1,11 +1,13 @@
-<div class="h-10 my-2 font-bold text-yellow-500">
+<!-- <div class="my-6 font-bold text-yellow-500">
     {#if list.finded_words > 1}
         {list.finded_words} mots trouvés ! (Vous gagnez {gains[list.finded_words]}€ !)
     {:else if list.finded_words ===1}
         1 mot trouvé !
+    {:else}
+        Vous n'avez trouvé aucun mot pour le moment ...
     {/if}
 
-</div>
+</div> -->
 
 <div class="h-full aspect-square grid grid-cols-11 border-[10px] bg-black border-yellow-400">
     {#each Array(grid.length) as _, i}
