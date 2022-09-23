@@ -1,5 +1,5 @@
 <div class="w-1/4 bg-amber-100 h-min">
-    <h2 class="text-center text-4xl py-5 bg-amber-300">Tableau des gains {topHeight}</h2>
+    <h2 class="text-center text-4xl py-5 bg-amber-300">Tableau des gains</h2>
     <div class="relative h-full"> 
         <div class="gain">
             <p>9 mots : <span class="money">40 000€</span></p>
