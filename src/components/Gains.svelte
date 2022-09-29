@@ -5,7 +5,7 @@
             <p>9 mots : <span class="money">40 000€</span></p>
         </div>
         <div class="gain">
-            <p>8 mots : <span class="money">1 000€</span></p>
+            <p>8 mots : <span class="money">10 000€</span></p>
         </div>
         <div class="gain">
             <p>7 mots : <span class="money">5000€</span></p>
