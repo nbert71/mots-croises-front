@@ -8,7 +8,7 @@
         <Grid {list} {letters}/>
     </div> 
     <div class="w-1/12"></div>
-    <Gains/>
+    <Gains {finded}/>
 </div>
 
 
@@ -33,6 +33,8 @@
         "SOUDE------",
     ])
     list.find_words()
+
+    $: finded = list.finded_words
 
     let letters = list.generate_my_letters()
 
