@@ -2,7 +2,7 @@
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
             <h1 class="font-bold mb-4 text-center text-xl">Mots croisés</h1>
-            <form class="space-y-6" action="#" method="POST">
+            <form class="space-y-6" on:submit|preventDefault={onSubmit}>
                 <div>
                     <div class="mt-1 flex items-center">
                         <i class="fa-solid fa-user mr-3 text-gray-500"></i>
@@ -39,3 +39,27 @@
         </div>
     </div>
 </div>
+
+<script>
+    async function onSubmit(e) {
+        const formData = new FormData(e.target);
+        const data = {};
+
+        for (let field of formData) {
+            const [key, value] = field;
+            data[key] = value;
+        }
+
+        const res = await fetch('http://127.0.0.1:3000/login', {
+            method: 'POST',
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        const content = await res.json();
+        console.log(content);
+        
+    }
+</script>
