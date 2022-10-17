@@ -1,17 +1,19 @@
-import { token } from './../store';
+import { getToken } from './../store';
+
+let baseURL = 'http://localhost:3000';
+
 
 let headers = new Headers({
-    'Autorization': `Bearer ${token}`,
+    'Authorization': `Bearer ${getToken()}`,
     'Content-Type': 'application/json'
 });
 
 const fetchURL = (method, url) => {
-    return fetch(url, {
+    return fetch(baseURL + url, {
         method: method,
         headers: headers
     })
     .then(res => res.json())
-    // .then(data => data)
     .catch(err => {
         console.log(err);
     })

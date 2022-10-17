@@ -4,7 +4,7 @@ const storedToken = localStorage.getItem('jwt')
 
 export const token = writable(storedToken);
 
-export function tokenValue(){
+export function getToken(){
     let value
     token.subscribe(v=>{value=v})
     return value
