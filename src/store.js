@@ -1,9 +1,16 @@
 import { writable } from 'svelte/store';
 
-const storedToken = localStorage.getItem('token')
+const storedToken = localStorage.getItem('jwt')
 
 export const token = writable(storedToken);
 
-// token.subscribe(value => {
-//     localStorage.setItem('token', value)
-// })
+export function tokenValue(){
+    let value
+    token.subscribe(v=>{value=v})
+    return value
+}
+
+export function setToken(newToken){
+    localStorage.setItem('jwt', newToken)
+    token.set(newToken)
+}
