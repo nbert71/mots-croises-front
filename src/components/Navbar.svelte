@@ -2,8 +2,8 @@
     <div class="flex items-center">
         <span class="text-xl mr-16">Jeux de mots croisés</span>
         <ul class="nav flex justify-between gap-8">
-            <a href="/" use:link={{href: '/', disabled: false}}>Home</a>
-            <a href="/" use:link={{href: '/help', disabled: false}}>Help</a>
+            <a href="/" use:active={'/'} use:link={{href: '/', disabled: false}}>Home</a>
+            <a href="/" use:active={'/help'} use:link={{href: '/help', disabled: false}}>Help</a>
 
         </ul>
     </div>
