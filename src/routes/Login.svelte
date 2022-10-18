@@ -41,6 +41,8 @@
 </div>
 
 <script>
+    import { getToken, setToken } from '../store.js'
+
     async function onSubmit(e) {
         const formData = new FormData(e.target);
         const data = {};
@@ -58,8 +60,11 @@
             },
             body: JSON.stringify(data)
         })
-        const content = await res.json();
-        console.log(content);
+        const tokenObject = await res.json();
+        const jwt = tokenObject.access_token;
+        setToken(jwt);
+        console.log(jwt);
+        // redirect to home page
         
     }
 </script>
