@@ -42,6 +42,7 @@
 
 <script>
     import { getToken, setToken } from '../store.js'
+    import { push } from 'svelte-spa-router'
 
     async function onSubmit(e) {
         const formData = new FormData(e.target);
@@ -60,11 +61,13 @@
             },
             body: JSON.stringify(data)
         })
+
         const tokenObject = await res.json();
         const jwt = tokenObject.access_token;
         setToken(jwt);
         console.log(jwt);
-        // redirect to home page
+
+        push('/')   // redirect to home page
         
     }
 </script>

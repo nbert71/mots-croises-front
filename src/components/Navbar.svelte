@@ -2,8 +2,8 @@
     <div class="flex items-center">
         <span class="text-xl mr-16">Jeux de mots croisés</span>
         <ul class="nav flex justify-between gap-8">
-            <a href="/"use:active={'/'}>Home</a>
-            <a href="/#/help"use:active={'/help'}>Help</a>
+            <a href="/" use:link={{href: '/', disabled: false}}>Home</a>
+            <a href="/" use:link={{href: '/help', disabled: false}}>Help</a>
 
         </ul>
     </div>
@@ -16,4 +16,5 @@
 
 <script>
     import active from 'svelte-spa-router/active';
+    import {link} from 'svelte-spa-router';
 </script>

@@ -1,5 +1,6 @@
 <Navbar />
 
+<h class="font-bold text-2xl mb-8">Bienvenue "user" !</h>
 <div class="flex w-full px-36">
     <div class="w-1/2 flex flex-col items-center">
         <h1 class="font-bold text-xl mb-8">Les jeux disponibles !</h1>
@@ -7,19 +8,20 @@
             Jouer
         </span>
     </div>
-    <div class="w-1/2">
+    <div class="w-1/2 flex flex-col items-center">
         <h1 class="font-bold text-xl mb-8">Vos précédentes parties</h1>
     </div>
 </div>
 
 
 <script>
+    import { push } from "svelte-spa-router";
     import Navbar from "./../components/Navbar.svelte";
 
     function newGame(){
         // jouer la partie dans le back
         // update le solde dans la navbar
-        //rediriger vers la page de game
+        push('/game')
     }
 
 </script>
