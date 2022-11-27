@@ -19,4 +19,15 @@ const fetchURL = (method, url) => {
     })
 }
 
-export default fetchURL;
+const fetchStatus = (method, url) =>{
+    return fetch(baseURL + url, {
+        method: method,
+        headers: headers
+    })
+    .then(res => res.status)
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+export {fetchURL, fetchStatus};

@@ -1,7 +1,12 @@
-<Router {routes} />
+{#await isAuthenticate()}
+    loading...
+{:then routes}
+    <Router {routes} />
+{/await}
 
 <script>
     import Router from 'svelte-spa-router'
+    import {fetchStatus} from "./api";
 
     import Game from "./routes/Game.svelte";
     import Help from './routes/Help.svelte';
@@ -11,13 +16,34 @@
     import Register from './routes/Register.svelte';
 
 
-    const routes = {
+    const routes_registered = {
         '/': Home,
         '/game': Game,
+        '/login': Home,
+        '/register': Home,
+        '/help': Help,
+        '*': NotFound
+    }
+
+    const routes_unregistered = {
+        '/': Login,
+        '/game': Login,
         '/login': Login,
         '/register': Register,
         '/help': Help,
         '*': NotFound
+    }
+
+    async function isAuthenticate(){
+        let routes = routes_registered
+        const status = await fetchStatus('GET', '/')
+        if(status==200){
+            routes = routes_registered
+        }else{
+            routes = routes_unregistered
+        }
+        console.log(typeof(status))
+        return routes
     }
 
 </script>

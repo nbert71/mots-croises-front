@@ -19,7 +19,7 @@
 
 
 <script>
-    import fetchURL from "../api";
+    import {fetchURL} from "../api";
     import { push } from "svelte-spa-router";
     import Navbar from "./../components/Navbar.svelte";
 

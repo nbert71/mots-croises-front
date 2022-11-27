@@ -67,7 +67,7 @@
         setToken(jwt);
         console.log(jwt);
 
-        push('/')   // redirect to home page
+        window.location.reload();   // redirect to home page
         
     }
 </script>

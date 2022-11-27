@@ -10,7 +10,7 @@ Help Page
 
 <script>
     import Navbar from "../components/Navbar.svelte";
-    import fetchURL from '../api'
+    import {fetchURL} from '../api'
     // import { setToken, tokenValue } from '../store.js'
 
     // setToken('frhefe')
