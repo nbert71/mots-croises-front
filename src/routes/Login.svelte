@@ -65,9 +65,11 @@
         const tokenObject = await res.json();    // register and login at the same time so you don't have to login just after registering
         const jwt = tokenObject.access_token;
         setToken(jwt);
-        console.log(jwt);
 
         window.location.reload();   // redirect to home page
+        window.location.replace('/');
+
         
     }
+
 </script>

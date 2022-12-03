@@ -87,6 +87,7 @@
             console.log(jwt);
 
             window.location.reload();   // redirect to home page
+            window.location.replace('/');
 
         } else {
             // raise error in front
