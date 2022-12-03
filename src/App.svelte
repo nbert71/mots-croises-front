@@ -42,7 +42,7 @@
         }else{
             routes = routes_unregistered
         }
-        console.log(typeof(status))
+        // console.log(typeof(status))
         return routes
     }
 
