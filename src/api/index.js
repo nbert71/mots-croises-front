@@ -8,15 +8,28 @@ let headers = new Headers({
     'Content-Type': 'application/json'
 });
 
-const fetchURL = (method, url) => {
-    return fetch(baseURL + url, {
-        method: method,
-        headers: headers
-    })
-    .then(res => res.json())
-    .catch(err => {
-        console.log(err);
-    })
+const fetchURL = (method, url, data={}) => {
+    if(method == 'GET'){
+        return fetch(baseURL + url, {
+                method: method,
+                headers: headers
+            })
+            .then(res => res.json())
+            .catch(err => {
+                console.log(err);
+            })
+    } else {
+        return fetch(baseURL + url, {
+            method: method,
+            headers: headers,
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .catch(err => {
+            console.log(err);
+        })
+    }
+    
 }
 
 const fetchStatus = (method, url) =>{

@@ -58,6 +58,7 @@
 
 <script>
     import { setToken } from "../store";
+    import { fetchURL } from "../api";
 
     async function onSubmit(e) {
         const formData = new FormData(e.target);
@@ -71,16 +72,17 @@
         if (data["password"] == data["confirm_password"]) {
             const { confirm_password, ...payload } = data;
 
-            const res = await fetch('http://127.0.0.1:3000/register', {
-                method: 'POST',
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(payload)
-            })
+            const tokenObject = await fetchURL('POST', '/register', payload);
 
-            const tokenObject = await res.json();
+            // const res = await fetch('http://127.0.0.1:3000/register', {
+            //     method: 'POST',
+            //     headers: {
+            //     'Accept': 'application/json',
+            //     'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(payload)
+            // })
+
             console.log(tokenObject)
             const jwt = tokenObject.access_token;
             setToken(jwt);

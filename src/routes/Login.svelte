@@ -43,6 +43,7 @@
 <script>
     import { getToken, setToken } from '../store.js'
     import { push } from 'svelte-spa-router'
+    import { fetchURL } from './../api/index.js';
 
     async function onSubmit(e) {
         const formData = new FormData(e.target);
@@ -53,16 +54,17 @@
             data[key] = value;
         }
 
-        const res = await fetch('http://127.0.0.1:3000/login', {
-            method: 'POST',
-            headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
+        const tokenObject = await fetchURL('POST', '/login', data);
 
-        const tokenObject = await res.json();    // register and login at the same time so you don't have to login just after registering
+        // const res = await fetch('http://127.0.0.1:3000/login', {
+        //     method: 'POST',
+        //     headers: {
+        //     'Accept': 'application/json',
+        //     'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify(data)
+        // })
+    // register and login at the same time so you don't have to login just after registering
         const jwt = tokenObject.access_token;
         setToken(jwt);
 
