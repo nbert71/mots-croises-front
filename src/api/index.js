@@ -1,7 +1,5 @@
 import { getToken } from './../store';
-
-let baseURL = 'http://localhost:3000';
-
+import { API_URL } from '../../env.js'
 
 let headers = new Headers({
     'Authorization': `Bearer ${getToken()}`,
@@ -10,7 +8,7 @@ let headers = new Headers({
 
 const fetchURL = (method, url, data={}) => {
     if(method == 'GET'){
-        return fetch(baseURL + url, {
+        return fetch(API_URL + url, {
                 method: method,
                 headers: headers
             })
@@ -19,7 +17,7 @@ const fetchURL = (method, url, data={}) => {
                 console.log(err);
             })
     } else {
-        return fetch(baseURL + url, {
+        return fetch(API_URL + url, {
             method: method,
             headers: headers,
             body: JSON.stringify(data)
@@ -33,7 +31,7 @@ const fetchURL = (method, url, data={}) => {
 }
 
 const fetchStatus = (method, url) =>{
-    return fetch(baseURL + url, {
+    return fetch(API_URL + url, {
         method: method,
         headers: headers
     })
