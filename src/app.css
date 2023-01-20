@@ -9,6 +9,10 @@
     height: 100%;
 }
 
+header nav a {
+    @apply text-base font-medium text-white hover:text-indigo-50 p-2 rounded-md;
+}
+
 header nav a.active {
-    @apply font-extrabold bg-white text-f-blue-500 shadow-lg shadow-f-blue-300/30;
+    @apply font-extrabold bg-white text-f-blue-500 hover:text-f-blue-500 shadow-lg shadow-f-blue-300/30;
 }
