@@ -3,7 +3,6 @@
         <div class="flex w-full items-center justify-between border-b border-indigo-500 py-4 lg:border-none">
             <div class="flex items-center">
                 <a href="/">
-                    <span class="sr-only">Your Company</span>
                     <img class="h-10 w-auto" src="coin.png" alt="">
                 </a>
                 <div class="ml-10 hidden space-x-8 lg:block">
@@ -22,7 +21,7 @@
                 </div>
             </div>
             <div class="ml-10 space-x-4">
-                <span class="inline-block rounded-md border border-transparent bg-f-blue-500 shadow-lg shadow-f-blue-300/30 py-2 px-4 text-base font-medium text-white">110 €</span>
+                <span class="inline-block rounded-md border border-transparent bg-f-blue-500 shadow-lg shadow-f-blue-300/30 py-2 px-4 text-base font-medium text-white">{solde} €</span>
             </div>
         </div>
         <div class="flex flex-wrap justify-center gap-x-6 py-4 lg:hidden">
@@ -44,4 +43,14 @@
 <script>
 import active from 'svelte-spa-router/active';
 import { link } from 'svelte-spa-router';
+import { fetchURL } from './../api/index'
+
+let solde;
+
+const getSolde = () => {
+    fetchURL('GET', '/my')
+    .then(res => solde = res.money)
+}
+getSolde()
+
 </script>

@@ -32,7 +32,7 @@
 import { fetchURL } from "./../api";
 import Navbar from "../components/Navbar.svelte";
 
-let solde = 0;
+let solde;
 let refill = 0;
 
 const updateRefill = (value) => {
