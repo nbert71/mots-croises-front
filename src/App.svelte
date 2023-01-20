@@ -14,11 +14,13 @@
     import Login from "./routes/Login.svelte";
     import NotFound from "./routes/NotFound.svelte";
     import Register from './routes/Register.svelte';
+    import Refill from "./routes/Refill.svelte";
 
 
     const routes_registered = {
         '/': Home,
         '/game': Game,
+        '/refill': Refill,
         '/login': Home,
         '/register': Home,
         '/help': Help,
@@ -29,6 +31,7 @@
         '/': Login,
         '/game': Login,
         '/login': Login,
+        '/refill': Login,
         '/register': Register,
         '/help': Help,
         '*': NotFound

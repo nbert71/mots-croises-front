@@ -3,7 +3,8 @@
         <span class="text-xl mr-16">Jeux de mots croisés</span>
         <ul class="nav flex justify-between gap-8">
             <a href="/" use:active={'/'} use:link={{href: '/', disabled: false}}>Home</a>
-            <a href="/" use:active={'/help'} use:link={{href: '/help', disabled: false}}>Help</a>
+            <a href="/" use:active={'/help'} use:link={{href: '/help', disabled: false}}>Aide</a>
+            <a href="/" use:active={'/refill'} use:link={{href: '/refill', disabled: false}}>Rechargement</a>
 
         </ul>
     </div>
