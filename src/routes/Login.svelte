@@ -23,6 +23,12 @@
                     </div>
                 </div>
 
+                {#if error}
+                <div class="text-center text-sm text-red-500 font-semibold">
+                    Nom d'utilisateur inconnu ou mot de passe incorrect.
+                </div>
+                {/if}
+
                 <div class="flex gap-2">
                     <a href='/#/register' class="flex w-1/2 justify-center rounded-md border border-blue-600 bg-white
                         py-2 px-4 text-sm font-medium text-blue-600 shadow-sm hover:bg-blue-100 focus:outline-none focus:ring-2
@@ -45,6 +51,8 @@
     import { push } from 'svelte-spa-router'
     import { fetchURL } from './../api/index.js';
 
+    let error = false;
+
     async function onSubmit(e) {
         const formData = new FormData(e.target);
         const data = {};
@@ -64,14 +72,17 @@
         //     },
         //     body: JSON.stringify(data)
         // })
-    // register and login at the same time so you don't have to login just after registering
-        const jwt = tokenObject.access_token;
-        setToken(jwt);
-
-        window.location.reload();   // redirect to home page
-        window.location.replace('/');
-
-        
+        // register and login at the same time so you don't have to login just after registering
+        if(!tokenObject.access_token){
+            error = true;
+            console.log('error login');
+        } else {
+            error = false
+            const jwt = tokenObject.access_token;
+            setToken(jwt);
+            window.location.reload();   // redirect to home page
+            window.location.replace('/');
+        }
     }
 
 </script>
