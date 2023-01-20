@@ -9,9 +9,6 @@
     height: 100%;
 }
 
-ul.nav > a {
-    @apply font-light
-}
-ul.nav a.active {
-    @apply font-bold;
+header nav a.active {
+    @apply font-extrabold bg-white text-f-blue-500 shadow-lg shadow-f-blue-300/30;
 }
