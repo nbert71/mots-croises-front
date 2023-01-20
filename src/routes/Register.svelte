@@ -39,6 +39,12 @@
                         shadow-sm focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm">
                 </div>
 
+                {#if error}
+                <div class="text-center text-sm text-red-500 font-semibold">
+                    Erreur dans l'inscription, vérifiez les données.
+                </div>
+                {/if}
+                
                 <div class="flex gap-2">
                     <a href='/#/login' class="flex w-1/2 justify-center rounded-md border border-blue-600 bg-white
                         py-2 px-4 text-sm font-medium text-blue-600 shadow-sm hover:bg-blue-100 focus:outline-none focus:ring-2
@@ -60,6 +66,8 @@
     import { setToken } from "../store";
     import { fetchURL } from "../api";
 
+    let error = false;
+
     async function onSubmit(e) {
         const formData = new FormData(e.target);
         const data = {};
@@ -69,7 +77,7 @@
             data[key] = value;
         }
 
-        if (data["password"] == data["confirm_password"]) {
+        if (data['password'] && data["password"] == data["confirm_password"]) {
             const { confirm_password, ...payload } = data;
 
             const tokenObject = await fetchURL('POST', '/register', payload);
@@ -88,11 +96,14 @@
             setToken(jwt);
             console.log(jwt);
 
+            error = false;
+
             window.location.reload();   // redirect to home page
             window.location.replace('/');
 
         } else {
-            // raise error in front
+            error = true;
+            console.log('error in registration');
         }
     }
 </script>
