@@ -14,3 +14,5 @@ export function setToken(newToken){
     localStorage.setItem('jwt', newToken)
     token.set(newToken)
 }
+
+export const solde_store = writable(0);

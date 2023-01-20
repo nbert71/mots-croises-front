@@ -31,6 +31,7 @@
 <script>
 import { fetchURL } from "./../api";
 import Navbar from "../components/Navbar.svelte";
+import { solde_store } from "./../store";
 
 let solde;
 let refill = 0;
@@ -47,6 +48,7 @@ const crediter = () => {
         //maj du solde dans le front
         solde = res
         refill = 0
+        solde_store.set(res)
     })
 }
 
