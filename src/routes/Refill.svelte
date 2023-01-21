@@ -1,5 +1,11 @@
-<Navbar />
-<div class="grid place-items-center w-full h-full bg-gray-200">
+<div aria-hidden="true" class="absolute inset-0 overflow-hidden -z-10">
+    <img src="wallpaper.jpg" alt="" class="h-full w-full object-cover object-center">
+    <div aria-hidden="true" class="absolute inset-0 bg-gray-900 opacity-70"></div>
+</div>
+
+<Navbar opacity={70}/>
+
+<div class="grid place-items-center w-full h-full">
     <div class="overflow-hidden bg-white shadow sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6 text-center">
             <h1 class="font-bold text-2xl mb-2 text-center">Rechargez votre compte !</h1>

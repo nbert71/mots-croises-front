@@ -1,4 +1,4 @@
-<header class="bg-f-blue-800">
+<header class="bg-f-blue-800/{opacity}">
     <nav class="mx-auto w-screen px-6 lg:px-8" aria-label="Top">
         <div class="flex w-full items-center justify-between border-b border-indigo-500 py-4 lg:border-none">
             <div class="flex items-center">
@@ -9,15 +9,18 @@
                     <a href="/" use:active={'/'} use:link={{href: '/', disabled: false}}>
                         Home
                     </a>
-
-                    <a href="/" use:active={'/help'} use:link={{href: '/help', disabled: false}}>
-                        Aide
+                    
+                    <a href="/" use:active={'/history'} use:link={{href: '/history', disabled: false}}>
+                        Historique
                     </a>
 
                     <a href="/" use:active={'/refill'} use:link={{href: '/refill', disabled: false}}>
                         Rechargement
                     </a>
-
+                    
+                    <a href="/" use:active={'/help'} use:link={{href: '/help', disabled: false}}>
+                        Aide
+                    </a>
                 </div>
             </div>
             <div class="ml-10 space-x-4">
@@ -29,13 +32,19 @@
                 Home
             </a>
 
+            <a href="/" use:active={'/history'} use:link={{href: '/history', disabled: false}}>
+                Historique
+            </a>
+            
+            <a href="/" use:active={'/refill'} use:link={{href: '/refill', disabled: false}}>
+                Rechargement
+            </a>
+            
             <a href="/" use:active={'/help'} use:link={{href: '/help', disabled: false}}>
                 Aide
             </a>
 
-            <a href="/" use:active={'/refill'} use:link={{href: '/refill', disabled: false}}>
-                Rechargement
-            </a>
+            
         </div>
     </nav>
 </header>
@@ -45,6 +54,8 @@ import active from 'svelte-spa-router/active';
 import { link } from 'svelte-spa-router';
 import { fetchURL } from './../api/index'
 import { solde_store } from './../store';
+
+export let opacity = 100;
 
 let soldeValue;
 
