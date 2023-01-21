@@ -1,7 +1,8 @@
-<div class="w-full h-full border bg-white rounded-sm flex items-center justify-center text-3xl"
+<div class="w-full h-full bg-white flex items-center justify-center text-3xl"
     class:revealed={isRevealed}
     class:finded={wordDiscovered && isRevealed}
     class:blank={letter.value === '-'}
+    class:letter={letter.value !== '-'}
 >
     {#if letter.value !== '-'}
         {letter.value}
@@ -58,4 +59,5 @@
         animation-duration: 0.5s;
     }
     .blank {@apply opacity-10 backdrop-blur-2xl;}
+    .letter {@apply border border-gray-700 rounded-md;}
 </style>
