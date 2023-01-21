@@ -1,13 +1,13 @@
-<Navbar />
+<div aria-hidden="true" class="absolute inset-0 overflow-hidden -z-10">
+    <img src="wallpaper.jpg" alt="" class="h-full w-full object-cover object-center">
+    <div aria-hidden="true" class="absolute inset-0 bg-gray-900 opacity-70"></div>
+</div>
 
-<div class="flex w-full h-full my-10">
-    <div class="w-3/12 flex flex-col items-center">
-        <MyLetters bind:letters={letters} bind:list={list}/>
-    </div>  
-    <div class="w-5/12 flex flex-col items-center justify-center">
-        <Grid {list} {letters}/>
-    </div> 
-    <div class="w-1/12"></div>
+<Navbar opacity={70}/>
+
+<div class="flex justify-evenly items-center w-full h-full my-10">
+    <MyLetters bind:letters={letters} bind:list={list}/>
+    <Grid {list} {letters}/>
     <Gains {finded}/>
 </div>
 

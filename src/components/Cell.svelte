@@ -1,4 +1,4 @@
-<div class="w-full h-full border border-black bg-white rounded-sm flex items-center justify-center text-3xl"
+<div class="w-full h-full border bg-white rounded-sm flex items-center justify-center text-3xl"
     class:revealed={isRevealed}
     class:finded={wordDiscovered && isRevealed}
     class:blank={letter.value === '-'}
@@ -57,5 +57,5 @@
         animation-name: find;
         animation-duration: 0.5s;
     }
-    .blank {@apply bg-gray-400;}
+    .blank {@apply opacity-10 backdrop-blur-2xl;}
 </style>

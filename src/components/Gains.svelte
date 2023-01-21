@@ -1,5 +1,5 @@
-<div class="w-1/4 bg-amber-100 h-min">
-    <h2 class="text-center text-4xl py-5 bg-amber-300">Tableau des gains</h2>
+<div class="h-min">
+    <h2 class="text-center text-4xl py-5 px-8 bg-f-orange-500 rounded-t-lg">Tableau des gains</h2>
     <div class="relative h-full"> 
         <div class="gain">
             <p>9 mots : <span class="money">40 000€</span></p>
@@ -53,10 +53,10 @@
 </script>
 
 <style>
-    .gain { @apply h-12 bg-yellow-100 flex items-center justify-center text-2xl;}
-    .money { @apply inline font-black text-amber-600;}
+    .gain { @apply h-12 bg-f-orange-100 flex items-center justify-center text-2xl;}
+    .money { @apply inline font-black text-f-orange-600;}
 
-    .cover { @apply absolute z-10 bg-yellow-300/[0.6] w-full transition-all duration-1000;}
+    .cover { @apply absolute z-10 bg-f-orange-400/[0.6] w-full transition-all duration-1000;}
     .top-cover {
         height: var(--top-height);
     }

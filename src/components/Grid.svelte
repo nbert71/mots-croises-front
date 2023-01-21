@@ -9,7 +9,7 @@
 
 </div> -->
 
-<div class="h-full aspect-square grid grid-cols-11 border-[10px] bg-black border-yellow-400">
+<div class="h-full aspect-square grid grid-cols-11 border-[10px] border-f-orange-400">
     {#each Array(grid.length) as _, i}
         {#each Array(grid[0].length) as __, j}
             <Cell 
