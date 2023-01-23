@@ -16,7 +16,8 @@
             <button on:click={newGame} type="button"
                 class="mt-8 inline-block rounded-md border border-transparent bg-white py-3 px-8
                 text-base font-medium text-gray-900 hover:bg-gray-100">
-                    Commencer une partie <br/> -- 3€ --
+                    <p>Commencer une partie</p>
+                    <span class="font-extrabold text-2xl text-f-blue-700">3 €</span>
             </button>
         </div>
     </div>
