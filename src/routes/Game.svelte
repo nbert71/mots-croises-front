@@ -6,9 +6,23 @@
 <Navbar opacity={70}/>
 
 <div class="flex justify-evenly items-center w-full h-full my-10">
-    <MyLetters bind:letters={letters} bind:list={list}/>
-    <Grid {list} {letters}/>
-    <Gains {finded}/>
+    
+    <!-- {#if finded >= 0}
+        <MyLetters bind:letters={letters} bind:list={list}/>
+        <Grid {list} {letters}/>
+        <Gains {finded}/>
+    {:else}
+        <p>loading</p>
+    {/if} -->
+
+    {#await getGame()}
+        loading...
+    {:then ret}
+        <!-- <MyLetters bind:letters={ret.letters} bind:list={ret.list}/>
+        <Grid list={ret.list} letters={ret.letters}/> -->
+    {/await}
+
+
 </div>
 
 
@@ -18,44 +32,18 @@
     import Grid from "../components/Grid.svelte";
     import Gains from "../components/Gains.svelte";
     import {GridJS} from "../components/GridJS.js";
+    import { fetchURL } from "./../api";
 
-    let list = new GridJS([
-        "--CHIC--NEZ",
-        "---O-APRE--",
-        "--CUIR--T-E",
-        "M--X-ARC--M",
-        "A-M--T-A--E",
-        "T-E--SAPHIR",
-        "IODES--I--A",
-        "N-I--U-TENU",
-        "E-AGENDA--D",
-        "E----I-L--E",
-        "SOUDE------",
-    ])
-    list.find_words()
+    async function getGame(){
+        console.log('coucou')
+        let resp = await fetchURL('GET', '/game/new')
+        let ret = {
+            list: new GridJS(resp.grid),
+            letters: resp.displayedLetters
+        }
+        ret.list.find_words()
+        console.log(ret)
+        return ret
+    }
 
-    $: finded = list.finded_words
-
-    let letters = list.generate_my_letters()
-
-    //let letters_size = 14;
-    // let letters = {
-    //     list:['A','B','C','D','E','F','G','H','I','J','K','L','M','N'],
-    //     displayed:{
-    //         A:false,
-    //         B:false,
-    //         C:false,
-    //         D:false,
-    //         E:false,
-    //         F:false,
-    //         G:false,
-    //         H:false,
-    //         I:false,
-    //         J:false,
-    //         K:false,
-    //         L:false,
-    //         M:false,
-    //         N:false
-    //     }
-    // }
 </script>
