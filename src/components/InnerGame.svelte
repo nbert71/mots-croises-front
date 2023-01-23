@@ -15,11 +15,19 @@
     import { GridJS } from "./GridJS";
     import { fetchURL } from "../api";
     import { solde_store } from "../store";
+    import JSConfetti from 'js-confetti';
+    
+    const confetti = new JSConfetti()
 
     export let response;
 
     function onEndGame(){
         console.log("End Game")
+        confetti.addConfetti({
+            confettiNumber: 50,
+            confettiRadius: 1,
+            emojis: ['🤑', '💸', '💵', '💴', '💶', '💷', '🪙', '💰', '💎']
+        })
         fetchURL("GET", "/game/end").then((res)=>{
             solde_store.set(res)
         })
