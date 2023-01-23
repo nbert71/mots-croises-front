@@ -25,6 +25,9 @@
             </div>
             <div class="ml-10 space-x-4">
                 <span class="inline-block rounded-md border border-transparent bg-f-blue-500 shadow-lg shadow-f-blue-300/30 py-2 px-4 text-base font-medium text-white">{soldeValue} €</span>
+                <button type="button" on:click={() => logout()}>
+                    <i class="fa-regular fa-power-off text-white"></i>
+                </button>
             </div>
         </div>
         <div class="flex flex-wrap justify-center gap-x-6 py-4 lg:hidden">
@@ -53,7 +56,7 @@
 import active from 'svelte-spa-router/active';
 import { link } from 'svelte-spa-router';
 import { fetchURL } from './../api/index'
-import { solde_store } from './../store';
+import { setToken, solde_store } from './../store';
 
 export let opacity = 100;
 
@@ -64,4 +67,10 @@ fetchURL('GET', '/my').then(res => soldeValue = res.money)
 solde_store.subscribe(value => {
     soldeValue = value
 })
+
+function logout() {
+    setToken('')
+    localStorage.removeItem('jwt')
+    window.location.reload();
+}
 </script>
