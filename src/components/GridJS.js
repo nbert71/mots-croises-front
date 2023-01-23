@@ -1,10 +1,12 @@
 export class GridJS{
-    constructor(letters){
+    constructor(letters, callBackEnd){
         this.finded_words=0;
         this.words=[];
         this.n_x=letters.length;
         this.n_y=letters[0].length;
         this.letters=Array(this.n_x);
+        this.callBack = callBackEnd;
+        this.discoveredLetters = [];
         for(let i=0;i<this.n_x;i++){
             this.letters[i]=Array(this.n_y);
             for(let j=0;j<this.n_y;j++){
@@ -104,7 +106,6 @@ export class GridJS{
                 }else if(current_word!==""){
                     let length=y-begin
                     if(length!==1){
-                        console.log(current_word)
                         let letters_list= this.extract_letters(current_word)
                         this.words.push({
                             mot:current_word,
@@ -159,7 +160,6 @@ export class GridJS{
                 }else if(current_word!==""){
                     let length=x-begin
                     if(length!==1){
-                        console.log(current_word)
                         let letters_list= this.extract_letters(current_word)
                         this.words.push({
                             mot:current_word,
@@ -205,6 +205,9 @@ export class GridJS{
     }
 
     discover_letter(letter){
+        if(!this.discoveredLetters.includes(letter)){
+            this.discoveredLetters.push(letter)
+        }
         for(let i=0;i<this.words.length;i++){
             let index=this.words[i].lettre_reste_a_trouver.indexOf(letter)
             if (index!==-1){
@@ -220,5 +223,10 @@ export class GridJS{
             number+=1;
         }
         this.finded_words=number;
+
+        if(this.discoveredLetters.length>=14){
+            console.log("End Game in GridJS")
+            this.callBack()
+        }
     }
 }

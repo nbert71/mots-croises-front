@@ -13,9 +13,19 @@
     import Grid from "../components/Grid.svelte";
     import Gains from "../components/Gains.svelte";
     import { GridJS } from "./GridJS";
+    import { fetchURL } from "../api";
+    import { solde_store } from "../store";
 
     export let response;
-    let list = new GridJS(response.grid);
+
+    function onEndGame(){
+        console.log("End Game")
+        fetchURL("GET", "/game/end").then((res)=>{
+            solde_store.set(res)
+        })
+    }
+
+    let list = new GridJS(response.grid, onEndGame);
     list.find_words();
     let letters = {
         list : response.displayedLetters,
@@ -28,5 +38,4 @@
 
     $: finded = list.finded_words
 
-    console.log(response)
 </script>
