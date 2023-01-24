@@ -21,8 +21,9 @@
 
     export let response;
 
+    solde_store.set(response.money)
+
     function onEndGame(){
-        console.log("End Game")
         confetti.addConfetti({
             confettiNumber: 50,
             confettiRadius: 1,

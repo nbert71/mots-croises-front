@@ -1,8 +1,3 @@
-<div aria-hidden="true" class="absolute inset-0 overflow-hidden -z-10">
-    <img src="wallpaper.jpg" alt="" class="h-full w-full object-cover object-center">
-    <div aria-hidden="true" class="absolute inset-0 bg-gray-900 opacity-70"></div>
-</div>
-
 <div class="flex h-screen min-w-full flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
         <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">

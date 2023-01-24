@@ -1,3 +1,8 @@
+<div aria-hidden="true" class="inset-0 overflow-hidden -z-10 fixed">
+    <img src="wallpaper.jpg" alt="" class="h-full w-full object-cover object-center">
+    <div aria-hidden="true" class="absolute inset-0 bg-gray-900 opacity-70"></div>
+</div>
+
 {#await isAuthenticate()}
     loading...
 {:then routes}
