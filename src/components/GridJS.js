@@ -225,8 +225,8 @@ export class GridJS{
         this.finded_words=number;
 
         if(this.discoveredLetters.length>=14){
-            console.log("End Game in GridJS")
             this.callBack()
+            this.callBack = ()=>{}
         }
     }
 }
